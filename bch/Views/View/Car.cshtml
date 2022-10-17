@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Car</title>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .CarList {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(3, calc(100% / 3));
+        grid-template-rows: repeat(9999, 400px);
+    }
+
+    .entry {
+        background-color: rgb(89, 213, 12);
+        border-radius: 15px;
+        width: 200px;
+        height: 80%;
+        display: grid;
+        place-items: center;
+        grid-template-rows: 50%;
+        color: white;
+        padding: 15px;
+    }
+
+        .entry img {
+            border-radius: 100%;
+            width: 100%;
+        }
+
+    .btn {
+        border: 1px solid white;
+        border-radius: 15px;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    var car = @Html.Raw(Json.Encode(ViewData["car"]));
+    addCar(car.image, car.name, car.model, car.description, car.price)
+
+    function addCar(image, name, model, descp, price){
+        $('body').append(`
+        <div class="entry">
+                <img srcimage="${image}" alt="">
+                <div>${name}</div>
+                <div>${model}</div>
+                <div>${descp}</div>
+                <div>${price}</div>
+                <div class="btn">View More</div>
+            </div>
+        `)
+    }
+
+</script>
