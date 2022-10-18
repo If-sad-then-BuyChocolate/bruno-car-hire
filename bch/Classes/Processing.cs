@@ -44,6 +44,12 @@ namespace bch.Classes
             return ret;
         }
 
+        public static string ConvertObjectToJSON(object obj)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+
         //Generate a random unique ID code, with a given length.
         private static Random random = new Random();
         public static string GenerateID(int length)

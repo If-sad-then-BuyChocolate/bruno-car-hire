@@ -34,8 +34,7 @@ namespace bch.Controllers
         {
             try
             {
-                Processing.getObject<Car>(Processing.DataPath + $"\\cars\\{id}.txt");
-                return "ok";
+                return Processing.ConvertObjectToJSON(Processing.getObject<Car>(Processing.DataPath + $"\\cars\\{id}.txt"));
             }
             catch (Exception e)
             {
@@ -48,8 +47,7 @@ namespace bch.Controllers
         {           
             try
             {
-                Processing.getObjects<Car>(Processing.DataPath + $"\\cars");
-                return "ok";
+                return Processing.ConvertObjectToJSON(Processing.getObjects<Car>(Processing.DataPath + $"\\cars"));
             }
             catch (Exception e)
             {
@@ -90,8 +88,7 @@ namespace bch.Controllers
         {            
             try
             {
-                Processing.getObject<Rental>(Processing.DataPath + $"\\rentals");
-                return "ok";
+                return Processing.ConvertObjectToJSON(Processing.getObject<Rental>(Processing.DataPath + $"\\rentals"));
             }
             catch (Exception e)
             {
@@ -104,8 +101,7 @@ namespace bch.Controllers
         {            
             try
             {
-                Processing.getObject<Rental>(Processing.DataPath + $"\\rentals\\{id}.txt");
-                return "ok";
+                return Processing.ConvertObjectToJSON(Processing.getObject<Rental>(Processing.DataPath + $"\\rentals\\{id}.txt"));
             }
             catch (Exception e)
             {
